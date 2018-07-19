@@ -5,9 +5,9 @@ namespace MoviesHub.Common
 {
     public class UtilityMethods
     {
-        public static bool TestConnection(string connStr)
+        public static bool TestConnection()
         {
-
+            string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["moviesHubConnStr"].ConnectionString;
             try
             {
                 using (var connection = new SqlConnection(connStr))

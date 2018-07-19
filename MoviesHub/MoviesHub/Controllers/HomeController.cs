@@ -9,12 +9,26 @@ namespace MoviesHub.Controllers
 {
     public class HomeController : Controller
     {
+        private MoviesData dal;
+
+        public MoviesData Dal
+        {
+            get
+            {
+                if (dal == null)
+                {
+                    dal = new MoviesData();
+                }
+                return dal;
+            }
+            
+        }
+
         public ActionResult Index()
         {
-            if (UtilityMethods.TestConnection(ConfigurationManager.ConnectionStrings["moviesHubConnStr"].ConnectionString))
+            if (UtilityMethods.TestConnection())
             {
-                MoviesData dal = new MoviesData(ConfigurationManager.ConnectionStrings["moviesHubConnStr"].ConnectionString);
-                List<Movie> list = dal.GetAllMovies();
+                List<Movie> list = Dal.GetAllMovies();
                 return View();
             }
             return View("Error");

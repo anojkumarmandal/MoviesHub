@@ -1,6 +1,7 @@
 ﻿using MoviesHub.Datatypes;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,11 @@ namespace MoviesHub.DataAccess
         private string query;
         private QueryDB db;
 
-        public MoviesData(string connStr)
+        //public MoviesData(string connStr)
+        public MoviesData()
         {
-            db = new QueryDB(connStr);
+            
+            db = new QueryDB(ConfigurationManager.ConnectionStrings["moviesHubConnStr"].ConnectionString);
         }
         public List<Movie> GetAllMovies()
         {
