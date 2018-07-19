@@ -213,6 +213,20 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MoviesHub.Common\MoviesHub.Common.csproj">
+      <Project>{81cfb7da-4f70-4504-9da6-dfd572517054}</Project>
+      <Name>MoviesHub.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MoviesHub.DataAccess\MoviesHub.DataAccess.csproj">
+      <Project>{7bcb8b9c-5380-46da-8250-bb369aafc32e}</Project>
+      <Name>MoviesHub.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MoviesHub.Datatypes\MoviesHub.Datatypes.csproj">
+      <Project>{8FFF817A-EB40-452B-A846-542A6A080907}</Project>
+      <Name>MoviesHub.Datatypes</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

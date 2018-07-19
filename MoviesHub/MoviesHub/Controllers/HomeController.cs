@@ -1,7 +1,8 @@
-﻿using System;
+﻿using MoviesHub.Common;
+using MoviesHub.DataAccess;
+using MoviesHub.Datatypes;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Configuration;
 using System.Web.Mvc;
 
 namespace MoviesHub.Controllers
@@ -10,7 +11,14 @@ namespace MoviesHub.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            if (UtilityMethods.TestConnection(ConfigurationManager.ConnectionStrings["moviesHubConnStr"].ConnectionString))
+            {
+                MoviesData dal = new MoviesData(ConfigurationManager.ConnectionStrings["moviesHubConnStr"].ConnectionString);
+                List<Movie> list = dal.GetAllMovies();
+                return View();
+            }
+            return View("Error");
+
         }
 
         public ActionResult Movies()
@@ -22,6 +30,8 @@ namespace MoviesHub.Controllers
         {
             return View();
         }
+
+        
 
     }
 }

@@ -42,11 +42,16 @@
   <ItemGroup>
     <Compile Include="MoviesData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryDB.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MoviesHub.Common\MoviesHub.Common.csproj">
       <Project>{81cfb7da-4f70-4504-9da6-dfd572517054}</Project>
       <Name>MoviesHub.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MoviesHub.Datatypes\MoviesHub.Datatypes.csproj">
+      <Project>{8FFF817A-EB40-452B-A846-542A6A080907}</Project>
+      <Name>MoviesHub.Datatypes</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
